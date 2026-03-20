@@ -279,12 +279,23 @@ int main( int argc, char* argv[] ) {
   }
 
   // Running simulation
-  call_price = Run_Full_MPI_Simulation( total_runs, total_timesteps,
-                                        seed, do_write_to_file,
-                                        parameters,
-                                        strike_price, discounting_rate,
-                                        MMCOP_DEFAULT_DO_MULTI_THREADED,
-                                        MMCOP_DEFAULT_VERSION );
+  if( do_write_to_file ) {
+    // Using Version 0 for write to file
+    call_price = Run_Full_MPI_Simulation( total_runs, total_timesteps,
+                                          seed, do_write_to_file,
+                                          parameters,
+                                          strike_price, discounting_rate,
+                                          MMCOP_DEFAULT_DO_MULTI_THREADED,
+                                          0 );
+  }
+  else {
+    call_price = Run_Full_MPI_Simulation( total_runs, total_timesteps,
+                                          seed, do_write_to_file,
+                                          parameters,
+                                          strike_price, discounting_rate,
+                                          MMCOP_DEFAULT_DO_MULTI_THREADED,
+                                          MMCOP_DEFAULT_VERSION );
+  }
 
   if( this_rank == 0 ) {
     std::cout << "Results : \n";
