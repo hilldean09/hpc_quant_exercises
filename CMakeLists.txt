@@ -12,7 +12,7 @@ endif()
 
 set( CMAKE_CXX_FLAGS "-Wall -Wextra -pedantic" )
 set( CMAKE_CXX_FLAGS_DEBUG "-g" )
-set( CMAKE_CXX_FLAGS_RELEASE "-O3" )
+set( CMAKE_CXX_FLAGS_RELEASE "-O3 -ffast-math" )
 set( CMAKE_CXX_FLAGS_RELWITHDEBINFO "-g -O2" )
 
 find_package( MPI REQUIRED COMPONENTS C CXX )
