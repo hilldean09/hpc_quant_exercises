@@ -17,6 +17,7 @@ typedef enum mmcop_mpi_tags_struct {
 
 } MMCOP_MPI_Tags;
 
+// I have learned better naming conventions since this
 typedef struct heston_parameters_struct {
 
   float initial_price;
@@ -38,6 +39,14 @@ Heston_Parameters Construct_Parameters_Object( float initial_price,
                                                float mean_reversion_level,
                                                float volatility,
                                                float correlation_factor );
+
+
+typedef struct simulation_statistics_struct {
+
+  float mean = 0.0f;
+  float standard_deviation = 0.0f;
+
+} Simulation_Statistics;
 
 
 void Simulate_Asset_Price_Walk( unsigned long long total_timesteps,
